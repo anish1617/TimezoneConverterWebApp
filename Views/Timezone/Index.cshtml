@@ -1,0 +1,87 @@
+﻿@model List<TimezoneModel>
+
+@{
+    ViewData["Title"] = "Timezone Converter";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">TimeZone Converter</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-header">
+                TimeZone Converter
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="startDateTime" class="form-label">Start Date Time</label>
+                        <input type="datetime-local" class="form-control" id="startDateTime" name="StartDateTime" placeholder="Example input placeholder">
+                    </div>
+                    <div class="mb-3">
+                        <label for="endDateTime" class="form-label">End Date Time</label>
+                        <input type="datetime-local" class="form-control" id="endDateTime" name="EndDateTime" placeholder="Another input placeholder">
+                    </div>
+                    <div class="mb-3">
+                        <label for="deadlineTimezone" class="form-label">Select Deadline Timezone</label>
+                        <select id="deadlineTimezone" class="form-select" name="DeadlineTimezone" aria-label="Default select example">
+                            <option value="" selected>-- Select Timezone --</option>
+                            @foreach (var timezone in Model)
+                            {
+                                <option value=@timezone.Id>@timezone.DisplayName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="firmAdminTimezone" class="form-label">Select Firm Admin Timezone</label>
+                        <select id="firmAdminTimezone" class="form-select" name="FirmAdminTimezone" aria-label="Default select example">
+                            <option value="" selected>-- Select Timezone --</option>
+                            @foreach (var timezone in Model)
+                            {
+                                <option value=@timezone.Id>@timezone.DisplayName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="outlookCalendarTimezone" class="form-label">Select Outlook Calendar Timezone</label>
+                        <select id="outlookCalendarTimezone" class="form-select" name="OutlookCalendarTimezone" aria-label="Default select example">
+                            <option value="" selected>-- Select Timezone --</option>
+                            @foreach (var timezone in Model)
+                            {
+                                <option value=@timezone.Id>@timezone.DisplayName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userTimezone" class="form-label">Select User Timezone</label>
+                        <select id="userTimezone" class="form-select" name="UserTimezone" aria-label="Default select example">
+                            <option value="" selected>-- Select Timezone --</option>
+                            @foreach (var timezone in Model)
+                            {
+                                <option value=@timezone.Id>@timezone.DisplayName</option>
+                            }
+                        </select>
+                    </div>
+
+                    <button type="submit" id="btnSubmitConvert" class="btn btn-primary mb-3">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <div id="dvConvertedDetails"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
