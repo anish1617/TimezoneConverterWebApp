@@ -13,21 +13,21 @@
     <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card">
             <div class="card-header">
-                TimeZone Converter
+                Appointment Details
             </div>
             <div class="card-body">
                 <form method="post">
                     <div class="mb-3">
                         <label for="startDateTime" class="form-label">Start Date Time</label>
-                        <input type="datetime-local" class="form-control" id="startDateTime" name="StartDateTime" placeholder="Example input placeholder">
+                        <input type="datetime-local" class="form-control" id="startDateTime" name="StartDateTime" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")">
                     </div>
                     <div class="mb-3">
                         <label for="endDateTime" class="form-label">End Date Time</label>
-                        <input type="datetime-local" class="form-control" id="endDateTime" name="EndDateTime" placeholder="Another input placeholder">
+                        <input type="datetime-local" class="form-control" id="endDateTime" name="EndDateTime" value="@DateTime.Now.AddMinutes(30.00).ToString("yyyy-MM-ddTHH:mm")">
                     </div>
                     <div class="mb-3">
                         <label for="deadlineTimezone" class="form-label">Select Deadline Timezone</label>
-                        <select id="deadlineTimezone" class="form-select" name="DeadlineTimezone" aria-label="Default select example">
+                        <select id="deadlineTimezone" class="form-select" name="DeadlineTimezone" aria-label="deadline timezone">
                             <option value="" selected>-- Select Timezone --</option>
                             @foreach (var timezone in Model)
                             {
@@ -37,7 +37,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="firmAdminTimezone" class="form-label">Select Firm Admin Timezone</label>
-                        <select id="firmAdminTimezone" class="form-select" name="FirmAdminTimezone" aria-label="Default select example">
+                        <select id="firmAdminTimezone" class="form-select" name="FirmAdminTimezone" aria-label="firm admin timezone">
                             <option value="" selected>-- Select Timezone --</option>
                             @foreach (var timezone in Model)
                             {
@@ -47,7 +47,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="outlookCalendarTimezone" class="form-label">Select Outlook Calendar Timezone</label>
-                        <select id="outlookCalendarTimezone" class="form-select" name="OutlookCalendarTimezone" aria-label="Default select example">
+                        <select id="outlookCalendarTimezone" class="form-select" name="OutlookCalendarTimezone" aria-label="outlook calendar timezone">
                             <option value="" selected>-- Select Timezone --</option>
                             @foreach (var timezone in Model)
                             {
@@ -57,7 +57,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="userTimezone" class="form-label">Select User Timezone</label>
-                        <select id="userTimezone" class="form-select" name="UserTimezone" aria-label="Default select example">
+                        <select id="userTimezone" class="form-select" name="UserTimezone" aria-label="user timezone">
                             <option value="" selected>-- Select Timezone --</option>
                             @foreach (var timezone in Model)
                             {
@@ -66,7 +66,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" id="btnSubmitConvert" class="btn btn-primary mb-3">Submit</button>
+                    <button type="submit" id="btnSubmitConvert" class="btn btn-primary mb-3">Convert</button>
                 </form>
 
             </div>
@@ -74,12 +74,35 @@
     </div>
     <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card">
+            <div class="card-header">
+                Appointment Conversion Details
+            </div>
             <div class="card-body">
                 <div id="dvConvertedDetails"></div>
             </div>
         </div>
     </div>
 </div>
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#deadlineTimezone').select2({
+                width: "100%"
+            });
+            $('#firmAdminTimezone').select2({
+                width: "100%"
+            });
+            $('#outlookCalendarTimezone').select2({
+                width: "100%"
+            });
+            $('#userTimezone').select2({
+                width: "100%"
+            });
+        });
+    </script>
+}
 
 
 

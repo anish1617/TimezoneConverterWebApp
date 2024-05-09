@@ -1,15 +1,27 @@
 ﻿@model ConvertedTimezoneDetailViewModel
 
 
-<h5 class="card-title">Converted Timezones</h5>
-
 <p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
 <p class="card-text"><b>Original EndDateTime:</b> @Model.OriginalEndDateTime</p>
-<p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
-<p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
-<p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
-<p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
-<p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
-<p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
-<p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
-<p class="card-text"><b>Original StartDateTime:</b> @Model.OriginalStartDateTime</p>
+<br />
+
+<p class="card-text"><b>DeadlineTimeZone:</b> @Model.SelectedTimezones?.DeadlineTimezone</p>
+<p class="card-text"><b>Converted Deadline StartDateTime:</b> @Model.ConvertedDeadlineStartDateTime</p>
+<p class="card-text"><b>Converted Deadline EndDateTime:</b> @Model.ConvertedDeadlineEndDateTime</p>
+<br />
+
+<p class="card-text"><b>FirmAdminTimeZone:</b> @Model.SelectedTimezones?.FirmAdminTimezone</p>
+<p class="card-text"><b>Converted Admin StartDateTime:</b> @Model.ConvertedAdminStartDateTime</p>
+<p class="card-text"><b>Converted Admin EndDateTime:</b> @Model.ConvertedAdminEndDateTime</p>
+<br />
+
+<p class="card-text"><b>OutlookCalendarTimeZone:</b> @Model.SelectedTimezones?.OutlookCalendarTimezone</p>
+<p class="card-text"><b>Converted Deadline StartDateTime:</b> @Model.ConvertedOutlookStartDateTime</p>
+<p class="card-text"><b>Converted Deadline EndDateTime:</b> @Model.ConvertedOutlookEndDateTime</p>
+<br />
+
+<p class="card-text"><b>UserTimeZone:</b> @Model.SelectedTimezones?.UserTimezone</p>
+<p class="card-text"><b>Converted User StartDateTime:</b> @Model.ConvertedUserStartDateTime</p>
+<p class="card-text"><b>Converted User EndDateTime:</b> @Model.ConvertedUserEndDateTime</p>
+<br />
+
